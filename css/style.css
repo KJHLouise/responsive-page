@@ -1,0 +1,259 @@
+.header {
+  position: fixed;
+  padding-left: 12px;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 100%;
+  transition: 0.5s;
+  background: linear-gradient(45deg, aqua, royalblue);
+}
+.header h1 {
+  font-family: "orbitron";
+  font-weight: bold;
+  font-size: 5rem;
+  /* font: bold 50px/1 "orbitron"; 폰트 한꺼번에 적는 법*/
+  line-height: 1;
+  color: #fff;
+  letter-spacing: 1px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-325%);
+  text-align: center;
+}
+.header h1::after {
+  content: "";
+  display: block;
+  width: 200px;
+  height: 2px;
+  background-color: #fff;
+  margin-top: 20px;
+}
+.header h1::before {
+  position: absolute;
+  left: 0;
+  bottom: -50%;
+  content: "MULTIMEDIA CREATIVE";
+  display: block;
+  font-family: "orbitron";
+  font-size: 1.4rem;
+  line-height: 1;
+  color: #fff;
+  letter-spacing: 2px;
+  opacity: 0.8;
+}
+.header ul {
+  position: absolute;
+  bottom: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+.header ul li {
+}
+.header ul li a {
+  font-size: 2rem;
+  color: #fff;
+}
+.header ul li a span {
+  display: inline-block;
+  opacity: 0.7;
+  transform: scale(0.7) translateX(-10px);
+}
+
+.main {
+  margin-left: 400px;
+  padding: 20px;
+}
+.main > ul {
+  position: relative;
+  width: 100%;
+  margin-bottom: 10px;
+  /* margin-left: 20px; */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+}
+.main > ul > li {
+}
+.main > ul > li > a {
+  width: 100px;
+  line-height: 26px;
+  font-weight: bold;
+  font-size: 1rem;
+  font-family: "orbitron";
+  color: #aaa;
+  letter-spacing: 1px;
+  text-align: center;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+}
+.main > ul > li.on > a {
+  background: linear-gradient(45deg, #67faf3, #58abf8);
+  color: #fff;
+  box-shadow: 0 5px 20px rgba(0, 255, 255, 0.527);
+}
+.section {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.section article {
+  position: relative;
+  width: 20%;
+  padding: 1.2rem;
+}
+.section article div {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 0.4rem;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+  padding: 1.4rem;
+}
+.section article div img {
+  width: 100%;
+}
+.section article div h2 {
+  margin: 1.5rem 0 0.8rem 0;
+  font-weight: bold;
+  font-size: 1.2rem;
+  line-height: 1;
+  font-family: "orbitron";
+  letter-spacing: 1px;
+  color: #444;
+}
+.section article div p {
+  font-size: 1.1rem;
+  line-height: 1.25;
+  color: #777;
+  margin-bottom: 1.5rem;
+}
+
+/* break point : 화면이 나눠지는 부분(768px 테블릿, 480px 핸드폰) */
+
+@media screen and (max-width: 1599px) {
+  .header {
+    width: 350px;
+  }
+  .header h1 {
+    font-size: 4.5rem;
+  }
+  .main {
+    margin-left: 350px;
+  }
+  .section article {
+    width: 25%;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .header {
+    position: relative;
+    width: 100%;
+    height: 80px;
+  }
+  .header h1 {
+    font-size: 2.4rem;
+    transform: translateY(-130%);
+  }
+  .header h1::before,
+  .header h1::after {
+    display: none;
+  }
+  .header ul {
+    bottom: 25px;
+    right: 25px;
+    gap: 2.5rem;
+  }
+  .header ul li a {
+    font-size: 1.6rem;
+  }
+  .header ul li a span {
+    display: none;
+  }
+  .main {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 899px) {
+  .section article {
+    width: 33.333%;
+  }
+}
+
+@media screen and (max-width: 679px) {
+  .section article {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header {
+    height: 60px;
+  }
+  .header h1 {
+    font-size: 1.6rem;
+    transform: translateY(-110%);
+  }
+  .header ul {
+    gap: 2rem;
+    bottom: 16px;
+  }
+  .header ul li a {
+    font-size: 1.4rem;
+  }
+  .section article {
+    width: 100%;
+  }
+  .main ul {
+    justify-content: center;
+  }
+  .main ul li a {
+    width: 50px;
+  }
+}
+
+#modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+  z-index: 10;
+}
+#modal.active {
+  display: block;
+}
+.modal-inner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f5f5f5;
+  font-size: 1.6rem;
+  color: #333;
+  padding: 20px;
+  flex-direction: column;
+}
+.modal-body {
+  position: relative;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+.modal-btn {
+  cursor: pointer;
+  text-align: center;
+}
+.modal-btn:hover {
+  font-weight: bold;
+}
